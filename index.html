@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EFPP - Eco-Friendly Pet Products</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">EFPP Store</div>
+    
+    <nav class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div id="cart" style="position: relative; cursor: pointer;">
+      <div>🛒 Cart: <span id="cart-count">0</span></div>
+      <div id="cart-dropdown" class="cart-dropdown">
+        <p class="empty-cart">Your cart is empty.</p>
+        <ul id="cart-items"></ul>
+      </div>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <div class="auth-buttons">
+      <button id="login-btn" class="auth-btn">Login</button>
+      <button id="register-btn" class="auth-btn">Register</button>
+      <span id="user-greeting" style="display:none;"></span>
+      <button id="logout-btn" class="auth-btn" style="display:none;">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Eco-Friendly Pet Products</h1>
+      <p>Sustainable and natural items for your furry friends.</p>
+      <a href="#" class="btn">Shop Now</a>
+    </section>
+
+    <section class="products">
+      <h2>Featured Products</h2>
+       <!-- Add this inside your <section class="products"> -->
+<div class="product-grid">
+  <!-- Product 1 -->
+  <div class="product-card">
+    <div class="product-badge">Eco Choice</div>
+    <img src="https://th.bing.com/th/id/OIP.6RuCU7n4FAVfbabMtRyRwwHaEc?w=284&h=180&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Organic Cotton Dog Bed">
+    <h3>Organic Cotton Dog Bed</h3>
+    <p>$49.99</p>
+    <small>Supplier: EcoPets</small>
+    <div class="product-actions">
+      <button class="buy-button">Buy Now</button>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="product-card">
+    <img src="data:image/jpeg;base64,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" alt="Bamboo Cat Bowl Set">
+    <h3>Bamboo Cat Bowl Set</h3>
+    <p>$29.99</p>
+    <small>Supplier: GreenPaws</small>
+    <div class="product-actions">
+      <button class="buy-button">Buy Now</button>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="product-card">
+    <div class="product-badge">Best Seller</div>
+    <img src="https://th.bing.com/th/id/OIP.4d9rI0aTo9ywwe5xJp4frwAAAA?w=176&h=180&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Hemp dog leash">
+    <h3>Hemp Dog Leash</h3>
+    <p>$24.99</p>
+    <small>Supplier: NaturePets</small>
+    <div class="product-actions">
+      <button class="buy-button">Buy Now</button>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="product-card">
+    <img src="https://th.bing.com/th/id/OIP.UKOUJyC3p968dXjyKt6F2AHaHa?w=192&h=192&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Recycled Rubber Toy">
+    <h3>Recycled Rubber Toy</h3>
+    <p>$18.99</p>
+    <small>Supplier: EcoFun</small>
+    <div class="product-actions">
+      <button class="buy-button">Buy Now</button>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="product-card">
+    <div class="product-badge">New</div>
+    <img src="https://th.bing.com/th/id/OIP.FRHvgmDV--Z5au-2DT_9PgHaHa?w=189&h=189&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Plant cat litter">
+    <h3>Plant-Based Cat Litter</h3>
+    <p>$52.99</p>
+    <small>Supplier: BioCare</small>
+    <div class="product-actions">
+      <button class="buy-button">Buy Now</button>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Product 6 -->
+  <div class="product-card">
+    <img src="https://th.bing.com/th/id/OIP.KS2jzuNpFw5A9gwopJrQmwHaHw?w=178&h=186&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Organic Dog Shampoo">
+    <h3>Organic Dog Shampoo</h3>
+    <p>$27.99</p>
+    <small>Supplier: PurePaws</small>
+    <div class="product-actions">
+      <button class="buy-button">Buy Now</button>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Product 7 -->
+  <div class="product-card">
+    <div class="product-badge">Sale</div>
+    <img src="https://th.bing.com/th/id/OIP.NRdkI_bvQveRbKQdY986dgHaHa?w=188&h=188&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Eco-Friendly Poop Bags">
+    <h3>Eco Poop Bags (100pk)</h3>
+    <p>$14.99 <span class="original-price">$19.99</span></p>
+    <small>Supplier: GreenEarth</small>
+    <div class="product-actions">
+      <button class="buy-button">Buy Now</button>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Product 8 -->
+  <div class="product-card">
+    <img src="https://th.bing.com/th/id/OIP.UZ9XARcytICll9T5k6CrcgHaGa?w=235&h=203&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Bamboo Pet Brush">
+    <h3>Bamboo Pet Brush</h3>
+    <p>$22.99</p>
+    <small>Supplier: EcoGroom</small>
+    <div class="product-actions">
+      <button class="buy-button">Buy Now</button>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+        <!-- Product cards remain unchanged -->
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>Get in touch with us for any questions or inquiries.</p>
+    </section>
+  </main>
+
+  <!-- Modals at bottom of body -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-email">Email:</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="register-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Register</h2>
+      <form id="register-form">
+        <div class="form-group">
+          <label for="register-name">Name:</label>
+          <input type="text" id="register-name" required>
+        </div>
+        <div class="form-group">
+          <label for="register-email">Email:</label>
+          <input type="email" id="register-email" required>
+        </div>
+        <div class="form-group">
+          <label for="register-password">Password:</label>
+          <input type="password" id="register-password" required minlength="6">
+        </div>
+        <button type="submit" class="btn">Register</button>
+      </form>
+    </div>
+  </div>
+
+   <section class="contact" id="contact">
+  <div class="contact-container">
+    <!-- Visual divider with eco theme -->
+    <div class="section-divider">
+      <img src="https://cdn-icons-png.flaticon.com/512/2919/2919593.png" alt="Leaf icon" class="divider-icon">
+    </div>
+    
+    <div class="contact-info">
+      <h2>Connect With Us</h2>
+      <p class="contact-subtitle">We're here to help you and your furry friends!</p>
+      
+      <div class="contact-methods">
+        <!-- Phone with click-to-call -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3>Call Us</h3>
+          <p><a href="tel:+971526272859" class="contact-link">(971) 0526272859</a></p>
+          <p class="contact-hours">Mon-Fri: 9am-6pm EST</p>
+        </div>
+        
+        <!-- Email with click-to-email -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Email Us</h3>
+          <p><a href="mailto:info@efppstore.com" class="contact-link">johnterrybukenya9@gmail.com</a></p>
+          <p class="response-time">Response within 24 hours</p>
+        </div>
+        
+        <!-- Physical location -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Visit Us</h3>
+          <p>11B Street Mirdrif</p>
+          <p>DUBAI</p>
+          <button class="btn directions-btn">Get Directions</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Interactive contact form -->
+    <div class="contact-form">
+      <h3>Send A Message</h3>
+      <form id="message-form">
+        <div class="form-group">
+          <input type="text" id="contact-name" placeholder="Your Name" required>
+          <small class="error-message">Please enter your name</small>
+        </div>
+        <div class="form-group">
+          <input type="email" id="contact-email" placeholder="Your Email" required>
+          <small class="error-message">Please enter a valid email</small>
+        </div>
+        <div class="form-group">
+          <textarea id="contact-message" placeholder="How can we help you and your pet?" required></textarea>
+          <small class="error-message">Please enter your message</small>
+        </div>
+        <button type="submit" class="btn submit-btn">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- FAQ Accordion Section -->
+  <div class="faq-section">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item">
+      <button class="faq-question">Do you offer international shipping?<i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>We  ship Allover the world We are International! Working With A Number of Suppliers Allover the world</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Are your products really eco-friendly?<i class="fas fa-chevron-down"></i></button>
+      <div class="faq-answer">
+        <p>Absolutely! All our products are certified by the Green Pet Association and made from sustainable materials.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <p>&copy; 2025 EFPP. All rights reserved.</p>
+  </footer>
+
+  <!-- Single consolidated JavaScript file -->
+  <script>
+    // Menu Toggle
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+
+    // Cart Functionality
+    const cartItems = [];
+    const updateCart = () => {
+      document.getElementById('cart-count').textContent = cartItems.length;
+      const cartDropdown = document.getElementById('cart-dropdown');
+      cartDropdown.innerHTML = cartItems.length === 0 
+        ? '<p class="empty-cart">Your cart is empty</p>'
+        : `<ul>${cartItems.map(item => 
+            `<li>${item.name} - ${item.price}</li>`
+          ).join('')}</ul>`;
+    };
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.closest('.product-card');
+        cartItems.push({
+          name: product.querySelector('h3').textContent,
+          price: product.querySelector('p').textContent
+        });
+        updateCart();
+      });
+    });
+
+    document.getElementById('cart').addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('cart-dropdown').style.display = 
+        document.getElementById('cart-dropdown').style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('click', () => {
+      document.getElementById('cart-dropdown').style.display = 'none';
+    });
+
+    // Modal Functionality
+    const toggleModal = (modalId, show) => {
+      document.getElementById(modalId).style.display = show ? 'block' : 'none';
+      document.body.style.overflow = show ? 'hidden' : '';
+    };
+
+    document.getElementById('login-btn').addEventListener('click', () => toggleModal('login-modal', true));
+    document.getElementById('register-btn').addEventListener('click', () => toggleModal('register-modal', true));
+
+    document.querySelectorAll('.close').forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleModal('login-modal', false);
+        toggleModal('register-modal', false);
+      });
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal')) {
+        toggleModal('login-modal', false);
+        toggleModal('register-modal', false);
+      }
+    });
+
+    // Form Handling (demo only)
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Login functionality would go here');
+      toggleModal('login-modal', false);
+    });
+
+    document.getElementById('register-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Registration functionality would go here');
+      toggleModal('register-modal', false);
+    });
+  </script>
+</body>
+</html>
